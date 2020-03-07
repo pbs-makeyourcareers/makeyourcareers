@@ -1,4 +1,4 @@
-package com.pbs.jobtutorial.configuration;
+package com.pbs.makeyourcareers.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
