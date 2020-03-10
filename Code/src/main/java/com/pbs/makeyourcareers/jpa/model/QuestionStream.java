@@ -1,6 +1,7 @@
 package com.pbs.makeyourcareers.jpa.model;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class QuestionStream implements java.io.Serializable {
@@ -31,6 +33,8 @@ public class QuestionStream implements java.io.Serializable {
 	@JoinColumn(name = "question_type_id", nullable = false)
 	private QuestionType questionType;
 	
+	@OneToMany(mappedBy="questionStream")
+    private Set<Skills> skills;
 
 	public Long getId() {
 		return id;
