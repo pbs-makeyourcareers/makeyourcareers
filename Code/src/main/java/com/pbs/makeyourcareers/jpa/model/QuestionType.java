@@ -1,12 +1,13 @@
 package com.pbs.makeyourcareers.jpa.model;
 
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class QuestionType implements java.io.Serializable {
@@ -25,6 +26,8 @@ public class QuestionType implements java.io.Serializable {
 	
 	private Boolean isActive;
 	
+	@OneToMany(mappedBy="questionType")
+    private Set<QuestionStream> questionStream;
 	
 	public Long getId() {
 		return id;
@@ -70,6 +73,14 @@ public class QuestionType implements java.io.Serializable {
 	public String toString() {
 		return "QuestionType [id=" + id + ", questionTypeName=" + questionTypeName + ", questionTypeDesc="
 				+ questionTypeDesc + ", createDate=" + createDate + ", isActive=" + isActive + "]";
+	}
+
+	public Set<QuestionStream> getQuestionStream() {
+		return questionStream;
+	}
+
+	public void setQuestionStream(Set<QuestionStream> questionStream) {
+		this.questionStream = questionStream;
 	}
 
 	
